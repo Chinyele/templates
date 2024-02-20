@@ -682,6 +682,80 @@
             font-size: 16px;
             max-width: 470px;
         }
+
+        /* Testimonials Section */
+        #testimonials {
+            width: 100%;
+            padding-top: 10%;
+            padding-bottom: 5%;
+        }
+
+        #testimonials .container {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 60em;
+            zoom: 1
+        }
+
+        #testimonials .grid-testimonials {
+            overflow: hidden;
+            padding-top: 3.125em
+        }
+
+        #testimonials .grid-testimonials li {
+            float: left;
+            list-style-type: none;
+            padding-bottom: 3.125em
+        }
+
+        #testimonials .grid-testimonials p {
+            line-height: 1.5em;
+            margin: 0
+        }
+
+        #testimonials .grid-testimonials-citation {
+            color: #656262;
+            display: block;
+            font-size: 1.125em;
+            font-weight: 700;
+            margin-top: 2em;
+            text-transform: uppercase;
+            text-align: center
+        }
+
+        #testimonials .grid-testimonials li div {
+            border: 10px solid #ebebeb;
+            padding: 2.125em 7.638888888888889%;
+            position: relative
+        }
+
+        #testimonials .grid-testimonials .quote-arrow {
+            background: #fff;
+            border-right: 10px solid #ebebeb;
+            border-bottom: 10px solid #ebebeb;
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -32px;
+            left: 50%;
+            margin-left: -25px;
+            width: 40px;
+            height: 40px;
+            -moz-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+        }
+
+        @media screen and (min-width: 50em) {
+            #testimonials .grid-testimonials li {
+                margin-right: 5%;
+                width: 30%
+            }
+
+            #testimonials .grid-testimonials li:nth-child(3n) {
+                margin-right: 0
+            }
+        }
     </style>
 </head>
 
@@ -912,6 +986,57 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Testimonials section -->
+    <section id="testimonials">
+        <center>
+            <h2>What They Say About Us</h2>
+        </center>
+        <div class="container">
+            <ul class="grid-testimonials">
+                <li>
+                    <div>
+                        <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet mattis
+                            interd. Phasellus volutpat pellentesque dui, sit amet commodo risus faucibus sit
+                            amet.&rdquo;</p><span class="quote-arrow"></span>
+                    </div>
+                    <span class="grid-testimonials-citation">Michael Fox</span>
+                </li>
+                <li>
+                    <div>
+                        <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet mattis
+                            interd. Phasellus volutpat pellentesque dui, sit amet commodo risus faucibus sit
+                            amet.&rdquo;</p><span class="quote-arrow"></span>
+                    </div>
+                    <span class="grid-testimonials-citation">Riley Jackson</span>
+                </li>
+                <li>
+                    <div>
+                        <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet mattis
+                            interd. Phasellus volutpat pellentesque dui, sit amet commodo risus faucibus sit
+                            amet.&rdquo;</p><span class="quote-arrow"></span>
+                    </div>
+                    <span class="grid-testimonials-citation">Eleanor Gundry</span>
+                </li>
+                <li>
+                    <div>
+                        <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet mattis
+                            interd. Phasellus volutpat pellentesque dui, sit amet commodo risus faucibus sit
+                            amet.&rdquo;</p><span class="quote-arrow"></span>
+                    </div>
+                    <span class="grid-testimonials-citation">Jorge Castillo</span>
+                </li>
+                <li>
+                    <div>
+                        <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet mattis
+                            interd. Phasellus volutpat pellentesque dui, sit amet commodo risus faucibus sit
+                            amet.&rdquo;</p><span class="quote-arrow"></span>
+                    </div>
+                    <span class="grid-testimonials-citation">Anson Mount</span>
+                </li>
+            </ul>
         </div>
     </section>
 
