@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Third</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400");
+        @import url("https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css");
+
+        *,
+        *::before,
+        *::after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        /* ================= VARIABLE ================ */
+        :root {
+            --primary-color: hsl(9, 94%, 61%);
+            --primary-color-alt: hsl(28, 72%, 83%);
+            --second-color: #3e537c;
+            --second-color-alt: hsla(220, 33%, 36%, 65%);
+            --third-color: hsl(220, 36%, 28%);
+            --white-color: #fbfbfb;
+            --white-color-alt: hsl(12, 14%, 93%);
+            --dark-color: hsl(300, 100%, 0%);
+        }
+
+        /* ================= BASE ==================== */
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .bx {
+            font-size: 2.5rem;
+        }
+
+        .container {
+            padding: 0 2rem;
+        }
+
+        /* -- BODY -- */
+        body {
+            font-family: "Raleway", sans-serif;
+            font-size: 1rem;
+            background-color: var(--white-color);
+        }
+
+        /* ================= HEADER ================ */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--dark-color);
+            padding: 1rem 2rem;
+        }
+
+        .company-logo {
+            font-size: 2.5rem;
+            background: -webkit-linear-gradient(120deg,
+                    var(--primary-color-alt),
+                    var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-items {
+            display: flex;
+        }
+
+        .nav-item {
+            margin: 0 2rem;
+        }
+
+        .nav-link {
+            font-size: 1.1rem;
+            letter-spacing: 0.05rem;
+            position: relative;
+            background: -webkit-linear-gradient(var(--primary-color-alt),
+                    var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link::before {
+            content: "";
+            background: linear-gradient(var(--primary-color), var(--primary-color-alt));
+            width: 100%;
+            height: 0.05rem;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 150ms;
+        }
+
+        .nav-link:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .bx-menu,
+        .bx-x {
+            cursor: pointer;
+            background: -webkit-linear-gradient(120deg,
+                    var(--primary-color-alt),
+                    var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: none !important;
+        }
+
+        /* ================= MAIN ================ */
+
+        /* -------- HOME SECTION -------------- */
+        .section-1 {
+            background-color: var(--dark-color);
+            display: grid;
+        }
+
+        /* .home-computer-container {} */
+
+        .slogan .company-title {
+            background: -webkit-linear-gradient(120deg,
+                    var(--primary-color-alt),
+                    var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .slogan .company-slogan {
+            background: -webkit-linear-gradient(120deg,
+                    var(--primary-color-alt),
+                    var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.8rem;
+        }
+
+        /* =============== MEDIA QUERIES ======= */
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            /* ================= HEADER ================ */
+            header {
+                padding: 0.5rem 1rem;
+            }
+
+            .navbar {
+                background-color: var(--dark-color);
+                position: absolute;
+                top: 3.5rem;
+                right: 0;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                transform: scaleY(0);
+                transform-origin: bottom;
+                transition: transform 500ms;
+            }
+
+            .show-navbar {
+                display: flex;
+                transform: scaleY(1);
+                transform-origin: top;
+                transition: transform 300ms;
+            }
+
+            .nav-items {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .nav-item {
+                margin: 0.5rem 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .bx-menu {
+                display: block !important;
+            }
+
+            .show-bx {
+                display: block !important;
+            }
+
+            .hide-bx {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 769px) {
+            header {
+                padding: 1rem 5rem;
+            }
+
+            /* ================= MAIN ================ */
+
+            /* -------- HOME SECTION -------------- */
+            .section-1 {
+                justify-content: space-between;
+                grid-template-columns: 1fr 1fr;
+                padding: 10rem 5rem 0 5rem;
+            }
+
+            .slogan .company-title {
+                max-width: 30rem;
+                font-size: 1.8rem;
+                letter-spacing: 0.5rem;
+            }
+
+            .slogan .company-slogan {
+                max-width: 20rem;
+                font-size: 1.3rem;
+            }
+
+        }
+
+        /* Features Section */
+
+        #features {
+            font-family: sans-serif;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        #features .container {
+            margin: 5% 0%;
+            width: 100%;
+        }
+
+        #features .container-heading {
+            text-align: center;
+            color: #262f68;
+            font-size: 25px;
+            margin: 50px 0%;
+        }
+
+        #features .items-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        #features .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+        }
+
+        #features .item-icon {
+            width: 50px;
+            height: 50px;
+            padding: 5%;
+            border-radius: 25px;
+        }
+
+        #features #map-icon {
+            background-color: #ffe6df;
+        }
+
+        #features #coin-icon {
+            background-color: #dff0fe;
+        }
+
+        #features #comparison-icon {
+            background-color: #fcf3df;
+        }
+
+        #features #laptop-icon {
+            background-color: #eff2ff;
+        }
+
+        #features .item-details {
+            font-size: 17px;
+            text-align: center;
+            color: #7980a3;
+        }
+
+        /* Contact Form Section */
+
+        #contacts .row {
+            margin: -20px 0;
+        }
+
+        #contacts .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        #contacts .row .col {
+            padding: 0 20px;
+            float: left;
+            box-sizing: border-box;
+        }
+
+        #contacts .row .col.x-50 {
+            width: 50%;
+        }
+
+        #contacts .row .col.x-100 {
+            width: 100%;
+        }
+
+        #contacts .content-wrapper {
+            min-height: 100%;
+            position: relative;
+        }
+
+        #contacts .get-in-touch {
+            max-width: 650px;
+            margin: 0 auto;
+            position: relative;
+            top: 50%;
+            /* transform: translateY(-50%); */
+        }
+
+        #contacts .get-in-touch .title {
+            text-align: center;
+            font-family: Raleway, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 36px;
+            line-height: 48px;
+            padding-bottom: 48px;
+        }
+
+        #contacts .contact-form .form-field {
+            position: relative;
+            margin: 32px 0;
+        }
+
+        #contacts .contact-form .input-text {
+            display: block;
+            width: 100%;
+            height: 36px;
+            border-width: 0 0 2px 0;
+            border-color: #000;
+            font-family: Lusitana, serif;
+            font-size: 18px;
+            line-height: 26px;
+            font-weight: 400;
+        }
+
+        #contacts .contact-form .input-text:focus {
+            outline: none;
+        }
+
+        #contacts .contact-form .input-text:focus+.label,
+        .contact-form .input-text.not-empty+.label {
+            transform: translateY(-24px);
+        }
+
+        #contacts .contact-form .label {
+            position: absolute;
+            left: 20px;
+            bottom: 11px;
+            font-family: Lusitana, serif;
+            font-size: 18px;
+            line-height: 26px;
+            font-weight: 400;
+            color: #888;
+            cursor: text;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        #contacts .contact-form .submit-btn {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            font-family: Raleway, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 16px;
+            line-height: 24px;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* About section */
+
+        .about-section {
+            display: grid;
+            background-color: rgb(238, 238, 238);
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            padding: 4rem;
+        }
+
+        .about-description h1,
+        .about-description p {
+            color: var(--secondary-color);
+        }
+
+        .about-description p {
+            margin-top: 2rem;
+            font-size: 1rem;
+        }
+
+        .about-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-image img {
+            aspect-ratio: 1/1;
+            width: 100%;
+        }
+
+        @media (max-width:768px) {
+            body.active {
+                overflow: hidden;
+            }
+
+            .nav-wrapper {
+                padding: 2rem;
+            }
+
+            .nav-wrapper ul {
+                display: none;
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .burger-links {
+                display: flex;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            .about-description {
+                text-align: center;
+            }
+
+            .about-description p {
+                font-size: revert;
+            }
+        }
+
+
+        /* Footer Section */
+        #footer .main-footer {
+            padding: 70px 0;
+            display: flex;
+            justify-content: space-evenly;
+            background-color: #19302E;
+            width: 100%;
+        }
+
+        #footer .main-footer ul {
+            list-style: none;
+        }
+
+        #footer .main-footer h1 {
+            font-size: 22px;
+            line-height: 117%;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        #footer .main-footer h2 {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        #footer .main-footer ul li a {
+            color: #ffffffcc;
+            text-decoration: none;
+        }
+
+        #footer footer {
+            background-color: #19302E;
+            border-top: 1px solid #6EB981;
+            font-size: 17px;
+            padding: 15px 5px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        #footer footer a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        #footer .logoinfo p {
+            color: #6EB981;
+            font-size: 17px;
+            margin-top: 5px;
+        }
+
+        #footer .contact-details {
+            margin-top: 20px;
+        }
+
+        #footer .contact-details li {
+            list-style: none;
+            margin: 10px 0;
+        }
+
+        #footer .contact-details li a {
+            text-decoration: none;
+            color: #f1f1f1;
+        }
+
+        #footer .contact-details .fa {
+            color: #f1f1f1;
+            margin-right: 10px;
+        }
+
+        #footer .sociallogos {
+            padding: 20px 0;
+        }
+
+        #footer .sociallogos .logobox a {
+            padding: 0 10px;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 22px;
+        }
+
+        #footer .com ul li {
+            padding: 5px 0;
+        }
+
+        @media only screen and (max-width: 749px) {
+            #footer .main-footer {
+                padding: 20px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            #footer .info {
+                padding: 20px 0;
+            }
+
+            #footer .col-lg-6 {
+                width: 100% !important;
+            }
+
+            #footer .row {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #footer .main-footer {
+                grid-template-columns: 1fr;
+            }
+
+            #footer .sociallogos {
+                padding: 20px 0;
+            }
+
+            #footer .com {
+                padding: 20px 0;
+            }
+
+        }
+
+
+        /* Testimonials section */
+
+        .testimonials {
+            padding: 40px 0;
+            background: #f1f1f1;
+            color: #434343;
+            text-align: center;
+        }
+
+        .testimonial-inner {
+            max-width: 100vw;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        .testimonials .border {
+            width: 160px;
+            height: 5px;
+            background: #6ab04c;
+            margin: 26px auto;
+        }
+
+        .testimonials .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .testimonials .col {
+            flex: 33.33%;
+            max-width: 33.33%;
+            box-sizing: border-box;
+            padding: 15px;
+        }
+
+        .testimonial {
+            background: #fff;
+            padding: 30px;
+        }
+
+        .testimonial img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .testimonials .name {
+            font-size: 20px;
+            text-transform: uppercase;
+            margin: 20px 0;
+        }
+
+        .testimonials .stars {
+            color: #f0932b;
+            margin-bottom: 20px;
+        }
+
+        @media screen and (max-width: 960px) {
+            .testimonials .col {
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+
+        /* Gallery Section */
+        #gallery {
+            width: 100% !important;
+        }
+
+        #gallery .container {
+            max-width: 100%;
+            width: 100%;
+            margin: 0 auto;
+            /* padding: 0 2rem 2rem; */
+            padding: 1rem;
+        }
+
+        #gallery .heading {
+            font-family: "Montserrat", Arial, sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.5;
+            text-align: center;
+            padding: 3.5rem 0;
+            color: #1a1a1a;
+        }
+
+        #gallery .heading span {
+            display: block;
+        }
+
+        #gallery .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            /* Compensate for excess margin on outer gallery flex items */
+            margin: -1rem -1rem;
+        }
+
+        #gallery .gallery-item {
+            /* Minimum width of 24rem and grow to fit available space */
+            flex: 1 0 14rem;
+            width: 93%;
+            height: 100%;
+            /* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+            margin: 0.4rem;
+            box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+
+        #gallery .gallery-image {
+            display: block;
+            object-fit: cover;
+            transition: transform 400ms ease-out;
+        }
+
+        #gallery .gallery-image:hover {
+            transform: scale(1.15);
+        }
+
+
+        @supports (display: grid) {
+            #gallery .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+                grid-gap: 2rem;
+            }
+
+            #gallery .gallery,
+            #gallery .gallery-item {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="company-logo">LOGO</div>
+        <nav class="navbar">
+            <ul class="nav-items">
+                <li class="nav-item"><a href="#" class="nav-link">HOME</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">ABOUT</a></li>
+                <li class="nav-item"><a href="#gallery" class="nav-link">GALLERY</a></li>
+                <li class="nav-item"><a href="#contacts" class="nav-link">CONTACT</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">LOGIN</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x"></i>
+        </div>
+    </header>
+    <main>
+        <!-- HOME SECTION -->
+        <section class="container section-1">
+            <div class="slogan">
+                <h1 class="company-title">Learning Made Easy</h1>
+                <h2 class="company-slogan">
+                    The biggest computer shop in the area where customers come first.
+                </h2>
+            </div>
+            <div class="home-computer-container">
+                <img class="home-computer"
+                    src="https://github.com/r-e-d-ant/Computer-store-website/blob/main/assets/images/home_img.png?raw=true"
+                    alt="a computer in dark with shadow" class="home-img">
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+
+        <div class="about-section" id="about">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1554941829-202a0b2403b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                    alt="img">
+            </div>
+
+            <div class="about-description">
+                <h1>ABOUT US</h1>
+                <p>
+                    We're a creative studio that turns ideas into functional art. With a focus on collaboration and
+                    innovation, we offer a range of design services to help businesses stand out. Let's work together to
+                    bring your vision to life.
+                </p>
+                <p>
+                    We're a creative studio that turns ideas into functional art. With a focus on collaboration and
+                    innovation, we offer a range of design services to help businesses stand out. Let's work together to
+                    bring your vision to life.
+                </p>
+                <p>
+                    We're a creative studio that turns ideas into functional art. With a focus on collaboration and
+                    innovation, we offer a range of design services to help businesses stand out. Let's work together to
+                    bring your vision to life.
+                </p>
+                <p>
+                    We're a creative studio that turns ideas into functional art. With a focus on collaboration and
+                    innovation, we offer a range of design services to help businesses stand out. Let's work together to
+                    bring your vision to life.
+                </p>
+                <p>
+                    We're a creative studio that turns ideas into functional art. With a focus on collaboration and
+                    innovation, we offer a range of design services to help businesses stand out. Let's work together to
+                    bring your vision to life.
+                </p>
+            </div>
+        </div>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <div class="container">
+
+                <h1 class="heading">Gallery</h1>
+
+                <div class="gallery">
+
+                    <div class="gallery-item">
+                        <img class="gallery-image"
+                            src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=500&h=500&fit=crop"
+                            alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img class="gallery-image"
+                            src="https://images.unsplash.com/photo-1515260268569-9271009adfdb?w=500&h=500&fit=crop"
+                            alt="sunset behind San Francisco city skyline">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img class="gallery-image"
+                            src="https://images.unsplash.com/photo-1506045412240-22980140a405?w=500&h=500&fit=crop"
+                            alt="people holding umbrellas on a busy street at night lit by street lights and illuminated signs in Tokyo, Japan">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img class="gallery-image"
+                            src="https://images.unsplash.com/photo-1514041181368-bca62cceffcd?w=500&h=500&fit=crop"
+                            alt="car interior from central back seat position showing driver and blurred view through windscreen of a busy road at night">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img class="gallery-image"
+                            src="https://images.unsplash.com/photo-1445810694374-0a94739e4a03?w=500&h=500&fit=crop"
+                            alt="back view of woman wearing a backpack and beanie waiting to cross the road on a busy street at night in New York City, USA">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img class="gallery-image"
+                            src="https://images.unsplash.com/photo-1486334803289-1623f249dd1e?w=500&h=500&fit=crop"
+                            alt="man wearing a black jacket, white shirt, blue jeans, and brown boots, playing a white electric guitar while sitting on an amp">
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features">
+            <div class="container">
+                <div class="container-heading">Our Features.</div>
+                <div class="items-container">
+                    <div class="item">
+                        <img id="map-icon" class="item-icon"
+                            src="https://img.icons8.com/plasticine/100/000000/map-marker.png">
+                        <p class="item-details">Enter your trip details into quote form</p>
+                    </div>
+                    <div class="item">
+                        <img class="item-icon" id="coin-icon"
+                            src="https://img.icons8.com/ultraviolet/40/000000/expensive-2.png">
+                        <p class="item-details">Get quotes from top rated companies</p>
+                    </div>
+                    <div class="item">
+                        <img class="item-icon" id="comparison-icon"
+                            src="https://img.icons8.com/dusk/40/000000/price-comparison.png">
+                        <p class="item-details">Compare plans, prices, and benefits</p>
+                    </div>
+                    <div class="item">
+                        <img class="item-icon" id="laptop-icon"
+                            src="https://img.icons8.com/color/48/000000/laptop--v1.png">
+                        <p class="item-details">Buy online and get covered instantly</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <div class="testimonials" id="testimonial">
+            <br />
+            <br />
+            <div class="testimonial-inner">
+                <h1>Testimonial</h1>
+                <div class="border"></div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="testimonial">
+                            <img src="https://images.pexels.com/photos/3211476/pexels-photo-3211476.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                alt="">
+                            <div class="name">John Waddrob</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque repellat aspernatur
+                                temporibus
+                                assumenda sint odio minima. Voluptate alias possimus aspernatur voluptates excepturi
+                                placeat
+                                iusto cupiditate.</p>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="testimonial">
+                            <img src="https://images.pexels.com/photos/3585325/pexels-photo-3585325.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                alt="">
+                            <div class="name">John Waddrob</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque repellat aspernatur
+                                temporibus
+                                assumenda sint odio minima. Voluptate alias possimus aspernatur voluptates excepturi
+                                placeat
+                                iusto cupiditate.</p>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="testimonial">
+                            <img src="https://images.pexels.com/photos/2690323/pexels-photo-2690323.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                alt="">
+                            <div class="name">John Waddrob</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque repellat aspernatur
+                                temporibus
+                                assumenda sint odio minima. Voluptate alias possimus aspernatur voluptates excepturi
+                                placeat
+                                iusto cupiditate!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <!-- Contact Section -->
+        <section id="contacts">
+            <section class="get-in-touch">
+                <h1 class="title">Get in touch</h1>
+                <form class="contact-form row">
+                    <div class="col x-100 align-between">
+                        <div class="form-field col x-50">
+                            <input id="name" class="input-text js-input" type="text" required>
+                            <label class="label" for="name">Name</label>
+                        </div>
+                        <div class="form-field col x-50">
+                            <input id="email" class="input-text js-input" type="email" required>
+                            <label class="label" for="email">E-mail</label>
+                        </div>
+                    </div>
+                    <div class="form-field col x-100">
+                        <input id="message" class="input-text js-input" type="text" required>
+                        <label class="label" for="message">Message</label>
+                    </div>
+                    <div class="form-field col x-100 align-center">
+                        <input class="submit-btn" type="submit" value="Submit">
+                    </div>
+                </form>
+            </section>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="main-footer">
+            <div class="logoinfo" data-aos="fade-up">
+                <h2>Logo</h2>
+                <p>By Gotocourse</p>
+                <br />
+                <div class="contact-details">
+                    <h1>Contact Us</h1>
+                    <li>
+                        <div class="fa fa-phone"></div><a href="tel:+23400009000">+234 0987654321</a>
+                    </li>
+                    <li>
+                        <div class="fa fa-envelope"></div><a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a>
+                    </li>
+                    </li>
+                </div>
+            </div>
+            <div class="com " data-aos="fade-up">
+                <h1>About</h1>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="info" data-aos="fade-up">
+                <h1>Social Media</h1>
+                <div class="sociallogos">
+                    <div class="logobox">
+                        <a href="#" class="fa fa-instagram"></a>
+                        <a href="#" class="fa fa-linkedin"></a>
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-youtube-play"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>© Your Copyright 2021 All Rights Reserved</footer>
+    </section>
+
+
+    <!-- Scripts -->
+    <script>
+
+        'use strict'
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const bxMenu = document.querySelector('.bx-menu');
+        const bxX = document.querySelector('.bx-x');
+
+        const navBar = document.querySelector('.navbar');
+
+        // --- open menu ---
+
+        bxMenu.addEventListener('click', (e) => {
+            if (e.target.classList.contains('bx-menu')) {
+                navBar.classList.add('show-navbar');
+                bxMenu.classList.add('hide-bx');
+                bxX.classList.add('show-bx');
+            }
+        })
+
+        // --- close menu ---
+
+        bxX.addEventListener('click', (e) => {
+            if (e.target.classList.contains('bx-x')) {
+                navBar.classList.remove('show-navbar');
+                bxMenu.classList.remove('hide-bx');
+                bxX.classList.remove('show-bx');
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
